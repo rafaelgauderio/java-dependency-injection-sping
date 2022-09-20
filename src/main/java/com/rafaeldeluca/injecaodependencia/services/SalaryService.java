@@ -1,5 +1,8 @@
 package com.rafaeldeluca.injecaodependencia.services;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class SalaryService {
 	
 	private TaxService taxService;

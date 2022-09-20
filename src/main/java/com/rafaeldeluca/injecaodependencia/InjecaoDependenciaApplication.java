@@ -13,14 +13,12 @@ import com.rafaeldeluca.injecaodependencia.services.UnionService;
 @SpringBootApplication
 public class InjecaoDependenciaApplication implements CommandLineRunner {
 	
-	TaxService taxService = new TaxService();
-	PensionService pensionService = new PensionService();
-	UnionService unionService = new UnionService();
-	RichTaxService richTaxService = new RichTaxService();
+	private SalaryService salaryService;	
 	
-	SalaryService salaryRich = new SalaryService(richTaxService, pensionService, unionService);
-	SalaryService salaryDefault = new SalaryService(taxService, pensionService, unionService);
-	
+
+	public InjecaoDependenciaApplication(SalaryService salaryService) {		
+		this.salaryService = salaryService;
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(InjecaoDependenciaApplication.class, args);
@@ -29,8 +27,8 @@ public class InjecaoDependenciaApplication implements CommandLineRunner {
 	@Override
 	public void run (String...args) throws Exception {
 		
-		System.out.println("\nNet Salary : " + String.format("U$ %.2f", salaryRich.netSalary(10000)));
-		System.out.println("\nNet Salary : " + String.format("U$ %.2f", salaryDefault.netSalary(10000)));
+		System.out.println("\nNet Salary : " + String.format("U$ %.2f", salaryService.netSalary(10000)));
+		System.out.println("\nNet Salary : " + String.format("U$ %.2f", salaryService.netSalary(8000)));
 	}
 
 }
