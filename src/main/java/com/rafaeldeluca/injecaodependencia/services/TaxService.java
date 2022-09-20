@@ -1,8 +1,8 @@
 package com.rafaeldeluca.injecaodependencia.services;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class TaxService {
 	
 	public double tax(double amount) {
