@@ -11,13 +11,22 @@ public class SalaryService {
 	@Autowired
 	private PensionService pensionService;
 	@Autowired
-	private UnionService unionService;	
+	private UnionService unionService;
 	
+	@Autowired
+	private RichTaxService richTaxService;	
 	
 	public double netSalary (double grossSalary) {
 		double netSalary = grossSalary - taxService.tax(grossSalary) - pensionService.pension(grossSalary) - unionService.unionDues(grossSalary);
 		return netSalary;
 	}
+	
+	public double netSalaryRich (double grossSalary) {
+		double netSalary = grossSalary - richTaxService.tax(grossSalary) - pensionService.pension(grossSalary) - unionService.unionDues(grossSalary);
+		return netSalary;
+	}
+	
+	
 	
 	
 

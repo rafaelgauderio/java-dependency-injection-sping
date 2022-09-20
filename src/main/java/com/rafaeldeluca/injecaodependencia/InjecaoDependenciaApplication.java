@@ -20,8 +20,9 @@ public class InjecaoDependenciaApplication implements CommandLineRunner {
 	@Override
 	public void run (String...args) throws Exception {
 		
-		System.out.println("\nNet Salary : " + String.format("U$ %.2f", salaryService.netSalary(10000)));
-		System.out.println("\nNet Salary : " + String.format("U$ %.2f", salaryService.netSalary(8000)));
+		System.out.println("\nNet Salary: " + String.format("U$ %.2f", salaryService.netSalary(10000)));
+		System.out.println("\nRich person Net Salary: " + String.format("U$ %.2f", salaryService.netSalaryRich(10000)));
+		System.out.println("\nNet Salary: " + String.format("U$ %.2f", salaryService.netSalary(8000)));
 	}
 
 }
